@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static int[] countOcc(int [] a, int idx,int x){
+        if(idx == a.length) return new int[0];
+        int[] recans = countOcc(a,idx+1,x);
+        if(a[idx] == x){
+            int []ans = new int[recans.length + 1];
+            ans[0] = idx;
+            System.arraycopy(recans, 0, ans, 1, recans.length); // copy rest
+            return ans;
+        }
+        else{
+            return recans;
+        }
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int []a = new int[n];
+        for(int i=0;i<n;i++){
+            a[i] = sc.nextInt();
+        }
+        int x = sc.nextInt();
+        int[] recans = countOcc(a,0,x);
+        for(int idx:recans){
+            System.out.println(idx);
+        }
+    }
+}
