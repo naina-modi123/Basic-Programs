@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        String s1 = sc.nextLine();
+        String s2 = sc.nextLine();
+        if(s1.length()!= s2.length()){
+            System.out.println("False");
+            return;
+        }
+        char[] s1Arr = s1.toCharArray();
+        char[] s2Arr = s2.toCharArray();
+        Arrays.sort(s1Arr);
+        Arrays.sort(s2Arr);
+        boolean ans = Arrays.equals(s1Arr,s2Arr);
+        System.out.println(ans ? "True" : "False");
+    }
+}
