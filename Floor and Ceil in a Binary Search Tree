@@ -1,0 +1,37 @@
+// class TreeNode {
+//     int val;
+//     TreeNode left, right;
+
+//     TreeNode(int val) {
+//         this.val = val;
+//         this.left = this.right = null;
+//     }
+// }
+
+class Solution {
+    public int[] floorAndCeil(TreeNode root, int key) {
+        // write your code here 
+        int[] ans = new int[2];
+        ans[0] = -1;
+        ans[1] = -1;
+        
+        TreeNode temp = root;
+        while(temp != null){
+            if(temp.val == key){
+                ans[1] = key;
+                ans[0] = key;
+                return ans;
+            }
+            if(temp.val > key){
+                ans[1] = temp.val;
+                temp = temp.left;
+            }
+            else{
+                ans[0] = temp.val;
+                temp = temp.right;
+            }
+        }
+        return ans;
+    }
+}
+
