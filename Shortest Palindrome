@@ -1,0 +1,29 @@
+ static String shortestPalindrome(String s) {
+    //write your code here...
+    StringBuilder sb = new StringBuilder();
+    int n = s.length();
+    int end = n;
+    while(end > 0){
+        int left = 0;
+        int right = end-1;
+        boolean isPalindrome = true;
+        
+        while(left < right){
+            if(s.charAt(left) != s.charAt(right)){
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
+        }
+        if(isPalindrome) break;
+        end--;
+    }
+        
+    for(int i=n-1;i>=end;i--){
+        sb.append(s.charAt(i));
+    }
+    sb.append(s);
+        
+    return sb.toString();
+}
