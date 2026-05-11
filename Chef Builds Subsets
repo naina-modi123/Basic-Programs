@@ -1,0 +1,15 @@
+static List<List<Integer>> findSubsets(int[] inputNumbers) {
+    List<List<Integer>> ans = new ArrayList<>();
+    int n = inputNumbers.length;
+    int totalSubset = 1 << n;
+    for(int i=0;i<totalSubset;i++){
+        List<Integer> subset = new ArrayList<>();
+        for(int j=0;j<n;j++){
+            if((i & (1 << j)) != 0)
+            subset.add(inputNumbers[j]);
+        }
+        ans.add(subset);
+    }
+    return ans;
+
+}
