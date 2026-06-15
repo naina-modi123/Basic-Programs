@@ -1,0 +1,7 @@
+public static String stoneAbbys(int N) {
+    if(N > 0) return "Alice";
+    else return "Bob";
+    
+    
+    
+}
