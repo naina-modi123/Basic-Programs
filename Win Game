@@ -1,0 +1,6 @@
+public static boolean canWin(int a, int b, int w) {
+        // Write your code here
+        if(a+b >= w) return true;
+        else return false;
+     
+    }
